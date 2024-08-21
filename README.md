@@ -16,6 +16,11 @@ It has been made for my Web Engineering course at the Universidad de Antioquia.
 
 ## How to Run
 
+There are 2 ways to run the project:
+### I. Online
+Go to https://taller-html-amorin.s3.eu-west-1.amazonaws.com/index.html
+
+### II. Locally
 1. Clone the repository.
 2. Open `index.html` in your web browser.
 
