@@ -1,6 +1,8 @@
 let display = document.getElementById('display');
 let history = document.getElementById('history');
+let clearButton = document.getElementById('AC-CE');
 
+// Event listener in case the user is typing on the keyboard
 document.addEventListener('keydown', function(event) {
     const key = event.key;
     if (key === 'F12') {
@@ -16,21 +18,26 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// function that appends the value typed by the user or pushed by a button to the input display
 function appendToDisplay(value) {
     display.textContent += value;
-    document.getElementById('AC-CE').innerHTML = 'CE';
+    clearButton.innerHTML = 'CE';
 }
 
+// function that clears the display :
+// - if the button is on AC mode, it clears the display
+// - if the button is on CE mode, it clears the last character
 function clearDisplay() {
-    clearButton = document.getElementById('AC-CE');
     if (clearButton.innerHTML === 'AC') {
         display.textContent = '';
     } else {
         display.textContent = display.textContent.slice(0, -1);
     }
-    document.getElementById('AC-CE').blur();
+    clearButton.blur();
 }
 
+// function that calculates the result of the input display.
+// It replaces the functions by their Math equivalent and then evaluates the expression.
 function calculateResult() {
     try {
         let calculation = display.textContent;
@@ -48,12 +55,13 @@ function calculateResult() {
         let inputCalculation = display.textContent;
         display.textContent = roundedResult;
         addToHistory(inputCalculation, roundedResult);
-        document.getElementById('AC-CE').innerHTML = 'AC';
+        clearButton.innerHTML = 'AC';
     } catch (error) {
         display.textContent = 'Error';
     }
 }
 
+// function that adds the calculation and the result to the history display
 function addToHistory(calculation, result) {
     let historyItem = document.createElement('div');
     historyItem.textContent = `${calculation} = ${result}`;
@@ -61,6 +69,7 @@ function addToHistory(calculation, result) {
     history.scrollTop = history.scrollHeight; // Scroll to the bottom
 }
 
+// function that clears the history display
 function clearHistory() {
     history.innerHTML = '';
 }
