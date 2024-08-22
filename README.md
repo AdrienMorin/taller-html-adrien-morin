@@ -1,17 +1,20 @@
 # Web Calculator
 
-This is a simple web calculator that performs basic arithmetic operations: addition, subtraction, multiplication, and division.
+This is a simple web calculator that performs basic arithmetic operations.
 It has been made for my Web Engineering course at the Universidad de Antioquia.
 
 ## Features
 
 - Supports basic arithmetic operations.
 - Handles chained operations.
-- Clear and intuitive user interface.
+- Handles some complexes functions such as square root, log, ln, sin, cos, tan, power.
+- Includes the pi value.
+- Clear and intuitive user interface, made using mobile first methodology.
 - Responsive design for different screen sizes (made for smartphones also).
 - Keyboard support for inputting numbers and operations.
+- Includes an AC/CE button to delete the last character if we are in input mode (CE). Else (when we are in result mode) it reset the input section (AC). This button changes its text depending on the mode.
 - Error handling for invalid input.
-- Has an history screen to show the history of operations.
+- Has a history screen to show the history of operations.
 - The history screen can be cleared by clicking on the history logo.
 
 ## How to Run

@@ -18,20 +18,37 @@ document.addEventListener('keydown', function(event) {
 
 function appendToDisplay(value) {
     display.textContent += value;
+    document.getElementById('AC-CE').innerHTML = 'CE';
 }
 
 function clearDisplay() {
-    display.textContent = '';
-    document.getElementById('AC').blur();
+    clearButton = document.getElementById('AC-CE');
+    if (clearButton.innerHTML === 'AC') {
+        display.textContent = '';
+    } else {
+        display.textContent = display.textContent.slice(0, -1);
+    }
+    document.getElementById('AC-CE').blur();
 }
 
 function calculateResult() {
     try {
-        let result = eval(display.textContent);
-        let roundedResult = Number.isInteger(result) ? result : parseFloat(result.toFixed(4)); // Arrondit à 4 décimales si ce n'est pas un entier
         let calculation = display.textContent;
+
+        calculation = calculation.replace(/sqrt\(/g, 'Math.sqrt(');
+        calculation = calculation.replace(/log\(/g, 'Math.log10(');
+        calculation = calculation.replace(/ln\(/g, 'Math.log(');
+        calculation = calculation.replace(/sin\(/g, 'Math.sin(');
+        calculation = calculation.replace(/cos\(/g, 'Math.cos(');
+        calculation = calculation.replace(/tan\(/g, 'Math.tan(');
+        calculation = calculation.replace(/π/g, 'Math.PI');
+
+        let result = eval(calculation);
+        let roundedResult = Number.isInteger(result) ? result : parseFloat(result.toFixed(4)); // Arrondit à 4 décimales si ce n'est pas un entier
+        let inputCalculation = display.textContent;
         display.textContent = roundedResult;
-        addToHistory(calculation, roundedResult);
+        addToHistory(inputCalculation, roundedResult);
+        document.getElementById('AC-CE').innerHTML = 'AC';
     } catch (error) {
         display.textContent = 'Error';
     }

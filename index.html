@@ -17,10 +17,18 @@
     <div class="display" id="display"></div>
 
     <div class="buttons">
+        <button class="btn gray-dark" onclick="appendToDisplay('**')">^</button>
+        <button class="btn gray-dark" onclick="appendToDisplay('sqrt(')">√</button>
+        <button class="btn gray-dark" onclick="appendToDisplay('log(')">log</button>
+        <button class="btn gray-dark" onclick="appendToDisplay('ln(')">ln</button>
+        <button class="btn gray-dark" onclick="appendToDisplay('sin(')">sin</button>
+        <button class="btn gray-dark" onclick="appendToDisplay('cos(')">cos</button>
+        <button class="btn gray-dark" onclick="appendToDisplay('tan(')">tan</button>
+        <button class="btn gray-dark" onclick="appendToDisplay('π')">π</button>
         <button class="btn gray-dark" onclick="appendToDisplay('(')">(</button>
         <button class="btn gray-dark" onclick="appendToDisplay(')')">)</button>
         <button class="btn gray-dark" onclick="appendToDisplay('%')">%</button>
-        <button class="btn red" id="AC" onclick="clearDisplay()">AC</button>
+        <button class="btn red" id="AC-CE" onclick="clearDisplay()">AC</button>
         <button class="btn" onclick="appendToDisplay('7')">7</button>
         <button class="btn" onclick="appendToDisplay('8')">8</button>
         <button class="btn" onclick="appendToDisplay('9')">9</button>
